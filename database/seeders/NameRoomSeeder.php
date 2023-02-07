@@ -17,13 +17,13 @@ class NameRoomSeeder extends Seeder
     {
         DB::table('name_rooms')->insert([
             [
-                'nama' => 'Ruang Pertana'
+                'nama' => 'Ruang Fitrah'
             ],
             [
-                'nama' => 'Ruang Kedua'
+                'nama' => 'Ruang Hijir Ismail'
             ],
             [
-                'nama' => 'Ruang Ketiga'
+                'nama' => 'Ruang Jabal Rahmah'
             ]
         ]);
     }

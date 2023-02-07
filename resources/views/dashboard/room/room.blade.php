@@ -46,12 +46,13 @@
                             @php
                                 $no= 1;
                             @endphp
+                            @foreach ($rooms as $r)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>adadadadas</td>
-                                <td>adadadadas</td>
-                                <td>adadadadas</td>
-                                <td>adadadadas</td>
+                                <td>{{ $r->NameRooms->nama }}</td>
+                                <td>{{ $r->ClassRooms->nama }}</td>
+                                <td>{{ $r->biaya }}</td>
+                                <td>{{ $r->keterangan }}</td>
                                 <td>
                                     <a href="" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
@@ -62,6 +63,7 @@
                                     </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -9,7 +9,7 @@
                     <h5>Tambah Ruangan</h5>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('room.store') }}" method="POST">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-md-6">
@@ -32,6 +32,30 @@
                                 @error('class_room_id')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
                                 @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="biaya" class="form-label">Biaya</label>
+                                <input type="number" name="biaya" id="biaya" class="form-control @error('biaya') is-invalid @enderror">
+                                @error('biaya')
+                                    <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="keterangan" class="form-label">Keterangan</label>
+                                <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control @error('keterangan') is-invalid @enderror"></textarea>
+                                @error('keterangan')
+                                    <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <button class="btn btn-info float-end ms-3">Tambah Ruangan</button>
+                                <a href="{{ route('room.index') }}" class="btn btn-warning float-end">Kembali</a>
                             </div>
                         </div>
                     </form>

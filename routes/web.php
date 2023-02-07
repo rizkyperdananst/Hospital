@@ -43,8 +43,8 @@ Route::prefix('/admin')->group(function() {
         Route::get('/room', [RoomController::class, 'index'])->name('room.index');
         Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
         Route::get('getClassRoom/{id}', [RoomController::class, 'getClassRoom'])->name('getClassRoom');
+        Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
 
-        
         Route::resource('/admin', AdminController::class);
         Route::resource('/durg', DurgController::class);
 
