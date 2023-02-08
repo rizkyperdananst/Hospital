@@ -44,6 +44,10 @@ Route::prefix('/admin')->group(function() {
         Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
         Route::get('getClassRoom/{id}', [RoomController::class, 'getClassRoom'])->name('getClassRoom');
         Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
+        Route::get('/room/show/{id}', [RoomController::class, 'show'])->name('room.show');
+        Route::get('/room/edit/{id}', [RoomController::class, 'edit'])->name('room.edit');
+        Route::post('/room/update/{id}', [RoomController::class, 'update'])->name('room.update');
+        Route::post('/room/destroy/{id}', [RoomController::class, 'destroy'])->name('room.destroy');
 
         Route::resource('/admin', AdminController::class);
         Route::resource('/durg', DurgController::class);

@@ -54,11 +54,10 @@
                                 <td>{{ $r->biaya }}</td>
                                 <td>{{ $r->keterangan }}</td>
                                 <td>
-                                    <a href="" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-                                    <form action="" method="POST" class="d-inline">
+                                    <a href="{{ route('room.edit', $r->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('room.show', $r->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                    <form action="{{ route('room.destroy', $r->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
