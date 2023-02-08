@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Room;
 
 class PatientController extends Controller
 {
@@ -17,15 +18,14 @@ class PatientController extends Controller
 
     public function create()
     {
-        $data = Patient::latest('no_pasien')->first();
-        if(!$data) {
-            $noPasien = "NP0001";
-        } else {
-            $oldNoPasient = intval(substr($data->no_pasien, 4, 4));
-            $noPasien = 'NP' . sprintf("%04s", ++$oldNoPasient);
-        }
+       
         $genders = ['Laki-Laki', 'Perempuan'];
-        return view('dashboard.patient.create', compact('genders', 'noPasien'),
+        $religions = ['Islam', 'Protestan', 'Katolik', 'Hindu', 'Budha', 'Khonghucu'];
+        $statuses = ['Menikah', 'Belum Menikah'];
+        $educations = ['SD', 'SMP', 'SMA', 'SMK', 'S1', 'S2', 'S3', 'Profesor'];
+        $rooms = Room::all();
+ 
+        return view('dashboard.patient.create', compact('genders', 'religions', 'statuses', 'educations', 'rooms'),
         ['title' => 'Patient']);
     }
 
