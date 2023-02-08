@@ -29,6 +29,9 @@
                      <a class="nav-link {{ ($title == 'Room') ? 'active' : '' }}" href="{{ route('room.index') }}"><i class="fa-solid fa-people-roof"></i>Ruangan</a>
                   </li>
                   <li class="nav-item ">
+                     <a class="nav-link {{ ($title == 'Registration') ? 'active' : '' }}" href="{{ route('registration.index') }}"><i class="fa-solid fa-address-card"></i>Pendaftaran</a>
+                  </li>
+                  <li class="nav-item ">
                      <a class="nav-link {{ ($title == 'Patient') ? 'active' : '' }}" href="{{ route('patient.index') }}"><i class="fa-solid fa-bed"></i></i>Pasien</a>
                   </li>
                   <li class="nav-item">
