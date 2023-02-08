@@ -1,15 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NurseController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\OfficerController;
+use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\RoomController;
 
 /*
 |--------------------------------------------------------------------------

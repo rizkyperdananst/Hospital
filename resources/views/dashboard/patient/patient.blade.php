@@ -44,7 +44,7 @@
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
-                        <tbody>
+                        {{-- <tbody>
                             @php
                                 $no= 1;
                             @endphp
@@ -67,7 +67,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>
+                        </tbody> --}}
                     </table>
                 </div>
             </div>
