@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\OfficerController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::prefix('/admin')->group(function() {
         Route::resource('/nurse', NurseController::class);
         Route::resource('/doctor', DoctorController::class);
         Route::resource('/patient', PatientController::class);
-        // Route::resource('/room', RoomController::class);
+
         Route::get('/room', [RoomController::class, 'index'])->name('room.index');
         Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
         Route::get('getClassRoom/{id}', [RoomController::class, 'getClassRoom'])->name('getClassRoom');
@@ -49,6 +50,8 @@ Route::prefix('/admin')->group(function() {
         Route::get('/room/edit/{id}', [RoomController::class, 'edit'])->name('room.edit');
         Route::post('/room/update/{id}', [RoomController::class, 'update'])->name('room.update');
         Route::post('/room/destroy/{id}', [RoomController::class, 'destroy'])->name('room.destroy');
+
+        Route::resource('/registration', RegistrationController::class);
 
         Route::resource('/admin', AdminController::class);
         Route::resource('/durg', DurgController::class);
