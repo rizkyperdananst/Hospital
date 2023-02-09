@@ -16,9 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            ProfileSeeder::class,
-            NameRoomSeeder::class,
-            ClassRoomSeeder::class
+            ProfileSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

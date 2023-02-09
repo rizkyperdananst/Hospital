@@ -124,7 +124,7 @@
                                 <select name="room_id" id="room_id" class="form-select @error('room_id') is-invalid @enderror">
                                     <option selected>--Pilih Ruangan</option>
                                     @foreach ($rooms as $r)
-                                        <option value="{{ $r->id }}">{{ $r->nama }}</option>
+                                        <option value="{{ $r->id }}">{{ $r->rooms }}</option>
                                     @endforeach
                                 </select>
                                 @error('berat_badan')
@@ -148,6 +148,32 @@
                                     <option selected>--Pilih Nama Penanggung Jawab--</option>
                                 </select>
                                 @error('registration_id')
+                                    <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="nurse_id" class="form-label">Perawat</label>
+                                <select name="nurse_id" id="nurse_id" class="form-select @error('nurse_id') is-invaid @enderror">
+                                    <option selected>--Pilih Perawat--</option>
+                                    @foreach ($nurses as $n)
+                                        <option value="{{ $n->id }}">{{ $n->nama }}</option>
+                                    @endforeach
+                                </select>
+                                @error('nurse_id')
+                                    <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <label for="doctor_id" class="form-label">Dokter</label>
+                                <select name="doctor_id" id="doctor_id" class="form-select @error('doctor_id') is-invalid @enderror">
+                                    <option selected>--Pilih Dokter---</option>
+                                    @foreach ($doctors as $d)
+                                        <option value="{{ $d->id }}">{{ $d->nama }}</option>
+                                    @endforeach
+                                </select>
+                                @error('doctor_id')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
                                 @enderror
                             </div>

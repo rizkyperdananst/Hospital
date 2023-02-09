@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
+use App\Models\NameRoom;
+use App\Models\Nurse;
+use App\Models\Officer;
 use App\Models\Room;
 
 class PatientController extends Controller
@@ -24,8 +28,11 @@ class PatientController extends Controller
         $statuses = ['Menikah', 'Belum Menikah'];
         $educations = ['SD', 'SMP', 'SMA', 'SMK', 'S1', 'S2', 'S3', 'Profesor'];
         $rooms = Room::all();
+        $nurses = Nurse::all();
+        $doctors = Doctor::all();
+        $nameRoom = NameRoom::all();
  
-        return view('dashboard.patient.create', compact('genders', 'religions', 'statuses', 'educations', 'rooms'),
+        return view('dashboard.patient.create', compact('genders', 'religions', 'statuses', 'educations', 'rooms', 'nurses', 'doctors', 'nameRoom'),
         ['title' => 'Patient']);
     }
 

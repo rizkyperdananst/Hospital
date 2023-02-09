@@ -10,7 +10,7 @@ class Patient extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['nama', 'orang_tua', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'usia', 'no_kontak', 'agama', 'status', 'pendidikan', 'pekerjaan', 'room_id', 'class_room_id', 'registration_id', 'number_contact_id', 'alamat'];
+    protected $fillable = ['nama', 'orang_tua', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'usia', 'no_kontak', 'agama', 'status', 'pendidikan', 'pekerjaan', 'room_id', 'class_room_id', 'registration_id', 'number_contact_id', 'alamat', 'nurse_id', 'doctor_id'];
 
     public function rooms()
     {
@@ -20,5 +20,15 @@ class Patient extends Model
     public function registrations()
     {
         return $this->belongsTo(Registration::class, 'registration_id',);
+    }
+
+    public function nurses()
+    {
+        return $this->belongsTo(Nurse::class, 'nurse_id');
+    }
+    
+    public function doctors()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
 }

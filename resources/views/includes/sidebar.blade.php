@@ -35,14 +35,14 @@
                      <a class="nav-link {{ ($title == 'Patient') ? 'active' : '' }}" href="{{ route('patient.index') }}"><i class="fa-solid fa-bed"></i></i>Pasien</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
+                      <a class="nav-link {{ ($title == 'Name Room') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Ruangan</a>
                       <div id="submenu-5" class="collapse submenu" style="">
                           <ul class="nav flex-column">
                               <li class="nav-item">
-                                  <a class="nav-link" href="pages/general-table.html">General Tables</a>
+                                  <a class="nav-link" href="{{ route('nameroom.index') }}">Nama Ruangan</a>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link" href="pages/data-tables.html">Data Tables</a>
+                                  <a class="nav-link" href="{{ route('classroom.index') }}">Kelas Ruangan</a>
                               </li>
                           </ul>
                       </div>
