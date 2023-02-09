@@ -18,7 +18,10 @@ return new class extends Migration
             $table->foreignId('name_room_id')->constrained('name_rooms')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('nama');
+            $table->string('nama', 50);
+            $table->string('biaya', 50);
+            $table->string('fasilitas', 100);
+            $table->text('keterangan');
             $table->softDeletes();
             $table->timestamps();
         });

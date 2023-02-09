@@ -26,10 +26,10 @@ return new class extends Migration
             $table->enum('status', ['Menikah', 'Belum Menikah']);
             $table->enum('pendidikan', ['SD', 'SMP', 'SMA', 'SMK', 'S1', 'S2', 'S3', 'Profesor']);
             $table->string('pekerjaan', 50);
-            $table->foreignId('room_id')->constrained('rooms')
+            $table->foreignId('name_room_id')->constrained('name_rooms')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('class_room_id')->constrained('rooms')
+            $table->foreignId('class_room_id')->constrained('class_rooms')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('registration_id')->constrained('registrations')

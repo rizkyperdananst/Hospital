@@ -36,9 +36,9 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-                                <input type="date" name="tgl_lahir" id="tgk_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror">
-                                @error('tgl_lahir')
+                                <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror">
+                                @error('tanggal_lahir')
                                 <div class="alert alert-danger mt-1 mb-1 p-2">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -120,11 +120,11 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="room_id" class="form-label">Ruangan</label>
-                                <select name="room_id" id="room_id" class="form-select @error('room_id') is-invalid @enderror">
-                                    <option selected>--Pilih Ruangan</option>
-                                    @foreach ($rooms as $r)
-                                        <option value="{{ $r->id }}">{{ $r->rooms }}</option>
+                                <label for="name_room_id" class="form-label">Nama Ruangan</label>
+                                <select name="name_room_id" id="name_room_id" class="form-select @error('name_room_id') is-invalid @enderror">
+                                    <option selected hidden>--Pilih Ruangan</option>
+                                    @foreach ($nameRooms as $nr)
+                                        <option value="{{ $nr->id }}">{{ $nr->nama }}</option>
                                     @endforeach
                                 </select>
                                 @error('berat_badan')
@@ -146,6 +146,9 @@
                                 <label for="registration_id" class="form-label">Nama Penanggung Jawab</label>
                                 <select name="registration_id" id="registration_id" class="form-select @error('registration_id') is-invalid @enderror">
                                     <option selected>--Pilih Nama Penanggung Jawab--</option>
+                                    @foreach ($registrations as $r)
+                                        <option value="{{ $r->id }}">{{ $r->nama }}</option>
+                                    @endforeach
                                 </select>
                                 @error('registration_id')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
@@ -199,4 +202,38 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+    {{-- JQuery CDN --}}
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+        $('#name_room_id').on('change', function() {
+           var categoryID = $(this).val();
+           if(categoryID) {
+               $.ajax({
+                   url: '/admin/getClassRoom/'+categoryID,
+                   type: "GET",
+                   data : {"_token":"{{ csrf_token() }}"},
+                   dataType: "json",
+                   success:function(data)
+                   {
+                     if(data){
+                        $('#class_room_id').empty();
+                        $('#class_room_id').append('<option hidden>--Pilih Kelas Ruangan--</option>'); 
+                        $.each(data, function(key, classRoom){
+                            $('select[name="class_room_id"]').append('<option value="'+ classRoom.id +'">' + classRoom.nama+ '</option>');
+                        });
+                    }else{
+                        $('#class_room_id').empty();
+                    }
+                 }
+               });
+           }else{
+             $('#class_room_id').empty();
+           }
+        });
+        });
+      </script>
+    @endpush
 @endsection

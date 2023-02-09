@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-header">
-                    <h5>Detail Pasien</h5>
+                    <h5>Detail Data Pasien</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -14,27 +14,67 @@
                             <tbody>
                                 <tr>
                                     <th>Nomor Pasien</th>
-                                    <td>{{ $patient->no_pasien }}</td>
+                                    <td>{{ $patient->nama }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Nama</th>
-                                    <td>{{ $patient->nama }}</td>
+                                    <th>Nama Orang Tua</th>
+                                    <td>{{ $patient->orang_tua }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tempat Lahir</th>
+                                    <td>{{ $patient->tempat_lahir }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tanggal Lahir</th>
+                                    <td>{{ $patient->tanggal_lahir }}</td>
                                 </tr>
                                 <tr>
                                     <th>Jenis Kelamin</th>
                                     <td>{{ $patient->jenis_kelamin }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Tanggal Lahir</th>
-                                    <td>{{ $patient->tgl_lahir }}</td>
+                                    <th>Usia</th>
+                                    <td>{{ $patient->usia }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Tinggi Badan</th>
-                                    <td>{{ $patient->tinggi_badan }}</td>
+                                    <th>Nomor Kontak</th>
+                                    <td>{{ $patient->no_kontak }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Berat Badan</th>
-                                    <td>{{ $patient->berat_badan }}</td>
+                                    <th>Agama</th>
+                                    <td>{{ $patient->agama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{ $patient->status }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pendidikan</th>
+                                    <td>{{ $patient->pendidikan }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pekerjaan</th>
+                                    <td>{{ $patient->pekerjaan }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ruangan</th>
+                                    <td>{{ $patient->nameRooms->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Ruangan Kelas</th>
+                                    <td>{{ $patient->classRooms->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nama Penanggung Jawab</th>
+                                    <td>{{ $patient->registrations->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Perawat Yang Menangani</th>
+                                    <td>{{ $patient->nurses->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Dokter Yang Menangani</th>
+                                    <td>{{ $patient->doctors->nama }}</td>
                                 </tr>
                                 <tr>
                                     <th>Alamat</th>

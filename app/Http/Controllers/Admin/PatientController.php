@@ -5,19 +5,25 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ClassRoom;
 use App\Models\Doctor;
 use App\Models\NameRoom;
 use App\Models\Nurse;
-use App\Models\Officer;
-use App\Models\Room;
+use App\Models\Registration;
 
 class PatientController extends Controller
 {
     public function index()
     {
-        // $patients = Patient::all();
-        return view('dashboard.patient.patient',
+        $patients = Patient::all();
+        return view('dashboard.patient.patient', compact('patients'),
         ['title' => 'Patient']);
+    }
+
+    public function getClassRoom($id)
+    {
+        $classRoom = ClassRoom::where('name_room_id', $id)->get();
+        return response()->json($classRoom);
     }
 
     public function create()
@@ -27,28 +33,39 @@ class PatientController extends Controller
         $religions = ['Islam', 'Protestan', 'Katolik', 'Hindu', 'Budha', 'Khonghucu'];
         $statuses = ['Menikah', 'Belum Menikah'];
         $educations = ['SD', 'SMP', 'SMA', 'SMK', 'S1', 'S2', 'S3', 'Profesor'];
-        $rooms = Room::all();
+        $nameRooms = NameRoom::all();
         $nurses = Nurse::all();
         $doctors = Doctor::all();
         $nameRoom = NameRoom::all();
+        $registrations = Registration::all();
  
-        return view('dashboard.patient.create', compact('genders', 'religions', 'statuses', 'educations', 'rooms', 'nurses', 'doctors', 'nameRoom'),
+        return view('dashboard.patient.create', compact('genders', 'religions', 'statuses', 'educations', 'nameRooms', 'nurses', 'doctors', 'nameRoom', 'registrations'),
         ['title' => 'Patient']);
     }
 
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'no_pasien' => 'required',
             'nama' => 'required|max:50',
-            'tgl_lahir' => 'date|required',
+            'orang_tua' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'date|required',
             'jenis_kelamin' => 'required',
-            'tinggi_badan' => 'required|max:10',
-            'berat_badan' => 'required|max:10',
-            'alamat' => 'required'
+            'usia' => 'required',
+            'no_kontak' => 'required',
+            'agama' => 'required',
+            'status' => 'required',
+            'pendidikan' => 'required',
+            'pekerjaan' => 'required',
+            'name_room_id' => 'required|integer',
+            'class_room_id' => 'required|integer',
+            'registration_id' => 'required|integer',
+            'nurse_id' => 'required|integer',
+            'doctor_id' => 'required|integer',
+            'alamat' => 'required',
         ]);
 
-        Patient::create($validate);
+        $patient = Patient::create($validate);
         return redirect()->route('patient.index')->with('status', 'Data Pasien Berhasil Di Tambahkan');
     }
 
@@ -61,31 +78,51 @@ class PatientController extends Controller
 
     public function edit($id)
     {
-        $genders = ['Laki-Laki', 'Perempuan'];
         $patient = Patient::find($id);
-        return view('dashboard.patient.edit', compact('genders', 'patient'), 
+        $genders = ['Laki-Laki', 'Perempuan'];
+        $religions = ['Islam', 'Protestan', 'Katolik', 'Hindu', 'Budha', 'Khonghucu'];
+        $statuses = ['Menikah', 'Belum Menikah'];
+        $educations = ['SD', 'SMP', 'SMA', 'SMK', 'S1', 'S2', 'S3', 'Profesor'];
+        $nameRooms = NameRoom::all();
+        $nurses = Nurse::all();
+        $doctors = Doctor::all();
+        $nameRoom = NameRoom::all();
+        $classRoom = CLassRoom::where('name_room_id', $patient->name_room_id)->get();
+        $registrations = Registration::all();
+
+        return view('dashboard.patient.edit', compact('patient', 'genders', 'religions', 'statuses', 'educations', 'nameRooms', 'nurses', 'doctors', 'nameRoom', 'classRoom', 'registrations'), 
         ['title' => 'Patient']);
     }
 
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
-            'no_pasien' => 'required',
             'nama' => 'required|max:50',
-            'tgl_lahir' => 'date|required',
+            'orang_tua' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'date|required',
             'jenis_kelamin' => 'required',
-            'tinggi_badan' => 'required|max:10',
-            'berat_badan' => 'required|max:10',
-            'alamat' => 'required'
+            'usia' => 'required',
+            'no_kontak' => 'required',
+            'agama' => 'required',
+            'status' => 'required',
+            'pendidikan' => 'required',
+            'pekerjaan' => 'required',
+            'name_room_id' => 'required|integer',
+            'class_room_id' => 'required|integer',
+            'registration_id' => 'required|integer',
+            'nurse_id' => 'required|integer',
+            'doctor_id' => 'required|integer',
+            'alamat' => 'required',
         ]);
 
-        Patient::find($id)->update($validate);
+        $patient = Patient::find($id)->update($validate);
         return redirect()->route('patient.index')->with('status', 'Data Pasien Berhasil Di Update');
     }
 
     public function destroy($id)
     {
-        Patient::find($id)->delete();
+        $patient = Patient::find($id)->delete();
         return redirect()->route('patient.index')->with('status', 'Data Pasien Berhasil Di Hapus');
     }
 }

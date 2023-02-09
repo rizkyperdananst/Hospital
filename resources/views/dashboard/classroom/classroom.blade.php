@@ -17,7 +17,7 @@
         <div class="card shadow">
             <div class="card-header d-flex justify-content-between">
                 <h5>Data Kelas Ruangan</h5>
-                <a href="" class="btn btn-info">Tambah Kelas Ruangan</a>
+                <a href="{{ route('classroom.create') }}" class="btn btn-info">Tambah Kelas Ruangan</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,6 +26,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Ruangan</th>
+                                <th>Nama Kelas Ruangan</th>
+                                <th>Biaya</th>
+                                <th>Fasilitas</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -33,6 +36,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Ruangan</th>
+                                <th>Nama Kelas Ruangan</th>
+                                <th>Biaya</th>
+                                <th>Fasilitas</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -40,20 +46,24 @@
                             @php
                                 $no= 1;
                             @endphp
-                            {{-- @foreach ($nameRooms as $nr) --}}
+                            @foreach ($classRooms as $cr)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>adadada</td>
+                                <td>{{ $cr->nameRooms->nama }}</td>
+                                <td>{{ $cr->nama }}</td>
+                                <td>{{ $cr->biaya }}</td>
+                                <td>{{ $cr->fasilitas }}</td>
                                 <td>
-                                    <a href="" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <form action="" method="POST" class="d-inline">
+                                    <a href="{{ route('classroom.edit', $cr->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('classroom.show', $cr->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                    <form action="{{ route('classroom.destroy', $cr->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

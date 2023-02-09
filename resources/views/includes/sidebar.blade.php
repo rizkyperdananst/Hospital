@@ -25,28 +25,26 @@
                   <li class="nav-item ">
                      <a class="nav-link {{ ($title == 'Doctor') ? 'active' : '' }}" href="{{ route('doctor.index') }}"><i class="fa-solid fa-user-doctor"></i>Dokter</a>
                   </li>
-                  <li class="nav-item ">
-                     <a class="nav-link {{ ($title == 'Room') ? 'active' : '' }}" href="{{ route('room.index') }}"><i class="fa-solid fa-people-roof"></i>Ruangan</a>
-                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {{ ($title == 'Name Room') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa-solid fa-people-roof"></i>Ruangan</a>
+                    <div id="submenu-5" class="collapse submenu" style="">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('nameroom.index') }}">Nama Ruangan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('classroom.index') }}">Kelas Ruangan</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                   <li class="nav-item ">
                      <a class="nav-link {{ ($title == 'Registration') ? 'active' : '' }}" href="{{ route('registration.index') }}"><i class="fa-solid fa-address-card"></i>Pendaftaran</a>
                   </li>
                   <li class="nav-item ">
                      <a class="nav-link {{ ($title == 'Patient') ? 'active' : '' }}" href="{{ route('patient.index') }}"><i class="fa-solid fa-bed"></i></i>Pasien</a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link {{ ($title == 'Name Room') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Ruangan</a>
-                      <div id="submenu-5" class="collapse submenu" style="">
-                          <ul class="nav flex-column">
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('nameroom.index') }}">Nama Ruangan</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('classroom.index') }}">Kelas Ruangan</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </li>
+                  
                   <li class="nav-divider">
                       Setting
                   </li>

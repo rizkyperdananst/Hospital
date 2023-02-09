@@ -25,49 +25,45 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nomor Pasien</th>
-                                <th>Nama</th>
+                                <th>Nama Pasien</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Berat Badan</th>
-                                <th>Tinggi Badan</th>
+                                <th>Nama Ruangan</th>
+                                <th>Nama Ruangan Kelas</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nomor Pasien</th>
-                                <th>Nama</th>
+                                <th>Nama Pasien</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Berat Badan</th>
-                                <th>Tinggi Badan</th>
+                                <th>Nama Ruangan</th>
+                                <th>Nama Ruangan Kelas</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
-                        {{-- <tbody>
+                        <tbody>
                             @php
                                 $no= 1;
                             @endphp
                             @foreach ($patients as $patient)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $patient->no_pasien }}</td>
                                 <td>{{ $patient->nama }}</td>
                                 <td>{{ $patient->jenis_kelamin }}</td>
-                                <td>{{ $patient->berat_badan }}</td>
-                                <td>{{ $patient->tinggi_badan }}</td>
+                                <td>{{ $patient->nameRooms->nama }}</td>
+                                <td>{{ $patient->classRooms->nama }}</td>
                                 <td>
                                     <a href="{{ route('patient.edit', $patient->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="{{ route('patient.show', $patient->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
                                     <form action="{{ route('patient.destroy', $patient->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>
