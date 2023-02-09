@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'Admin | Pasien')
+@section('title', 'Admin | Poli')
     
 @section('content')
 <div class="row mb-3">
@@ -16,8 +16,8 @@
     <div class="col-12">
         <div class="card shadow">
             <div class="card-header d-flex justify-content-between">
-                <h5>Data Pasien</h5>
-                <a href="{{ route('patient.create') }}" class="btn btn-info">Tambah Pasien</a>
+                <h5>Data Poli</h5>
+                <a href="{{ route('poly.create') }}" class="btn btn-info">Tambah Poli</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -25,20 +25,20 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Pasien</th>
+                                <th>Nama</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Nama Ruangan</th>
-                                <th>Nama Ruangan Kelas</th>
+                                <th>Tempat Lahir</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Pasien</th>
+                                <th>Nama</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Nama Ruangan</th>
-                                <th>Nama Ruangan Kelas</th>
+                                <th>Tempat Lahir</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -46,18 +46,19 @@
                             @php
                                 $no= 1;
                             @endphp
-                            @foreach ($patients as $patient)
+                            @foreach ($polies as $poly)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $patient->nama }}</td>
-                                <td>{{ $patient->jenis_kelamin }}</td>
-                                <td>{{ $patient->nameRooms->nama }}</td>
-                                <td>{{ $patient->classRooms->nama }}</td>
-                                <td>
-                                    <a href="{{ route('patient.edit', $patient->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="{{ route('patient.show', $patient->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-                                    <form action="{{ route('patient.destroy', $patient->id) }}" method="POST" class="d-inline">
+                                <td>{{ $poly->nama }}</td>
+                                <td>{{ $poly->jenis_kelamin }}</td>
+                                <td>{{ $poly->tempat_lahir }}</td>
+                                <td>{{ $poly->tanggal_lahir }}</td>
+                                <td width="15%"> 
+                                    <a href="{{ route('poly.edit', $poly->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('poly.show', $poly->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                    <form action="{{ route('poly.destroy', $poly->id) }}" method="POST" class="d-inline">
                                         @csrf
+                                        @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
