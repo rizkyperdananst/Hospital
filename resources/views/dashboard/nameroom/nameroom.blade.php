@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
-@section('title', 'Admin | Data Ruangan')
-    
+@section('title', 'Admin | Data Nama Ruangan')
+ 
 @section('content')
 <div class="row mb-3">
     <div class="col-12">
@@ -12,12 +12,12 @@
         @endif
     </div>
 </div>
-<div class="row mb-3">
+<div class="row">
     <div class="col-12">
         <div class="card shadow">
             <div class="card-header d-flex justify-content-between">
-                <h5>Data Ruangan</h5>
-                <a href="{{ route('room.create') }}" class="btn btn-info">Tambah Ruangan</a>
+                <h5>Data Nama Ruangan</h5>
+                <a href="{{ route('nameroom.create') }}" class="btn btn-info">Tambah Nama Ruangan</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -25,20 +25,14 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th>Biaya</th>
-                                <th>Keterangan</th>
+                                <th>Nama Ruangan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th>Biaya</th>
-                                <th>Keterangan</th>
+                                <th>Nama Ruangan</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -46,18 +40,15 @@
                             @php
                                 $no= 1;
                             @endphp
-                            @foreach ($rooms as $r)
+                            @foreach ($nameRooms as $nr)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $r->NameRooms->nama }}</td>
-                                <td>{{ $r->ClassRooms->nama }}</td>
-                                <td>{{ $r->biaya }}</td>
-                                <td>{{ $r->keterangan }}</td>
+                                <td>{{ $nr->nama }}</td>
                                 <td>
-                                    <a href="{{ route('room.edit', $r->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="{{ route('room.show', $r->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-                                    <form action="{{ route('room.destroy', $r->id) }}" method="POST" class="d-inline">
+                                    <a href="{{ route('nameroom.edit', $nr->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <form action="{{ route('nameroom.destroy', $nr->id) }}" method="POST" class="d-inline">
                                         @csrf
+                                        @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
@@ -69,5 +60,5 @@
             </div>
         </div>
     </div>
-</div>    
+</div>
 @endsection

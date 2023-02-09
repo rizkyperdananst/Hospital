@@ -10,7 +10,7 @@ class ClassRoom extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name_room_id', 'nama'];
+    protected $fillable = ['name_room_id', 'nama', 'biaya', 'fasilitas', 'keterangan'];
 
     public function NameRooms()
     {

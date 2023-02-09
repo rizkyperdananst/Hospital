@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
-@section('title', 'Admin | Detail Ruangan')
+@section('title', 'Admin | Detail Kelas Ruangan')
     
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-header">
-                    <h5>Detail Ruangan</h5>
+                    <h5>Detail Kelas Ruangan</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -14,26 +14,30 @@
                             <tbody>
                                 <tr>
                                     <th>Nama Ruangan</th>
-                                    <td>{{ $room->nameRooms->nama }}</td>
+                                    <td>{{ $classRoom->nameRooms->nama }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Kelas</th>
-                                    <td>{{ $room->classRooms->nama }}</td>
+                                    <th>Nama Kelas Ruangan</th>
+                                    <td>{{ $classRoom->nama }}</td>
                                 </tr>
                                 <tr>
                                     <th>Biaya</th>
-                                    <td>{{ $room->biaya }}</td>
+                                    <td>{{ $classRoom->biaya }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fasilitas</th>
+                                    <td>{{ $classRoom->fasilitas }}</td>
                                 </tr>
                                 <tr>
                                     <th>Keterangan</th>
-                                    <td>{{ $room->keterangan }}</td>
+                                    <td>{{ $classRoom->keterangan }}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('room.index') }}" class="btn btn-warning float-end">Kembali  </a>
+                    <a href="{{ route('classroom.index') }}" class="btn btn-warning float-end">Kembali</a>
                 </div>
             </div>
         </div>
