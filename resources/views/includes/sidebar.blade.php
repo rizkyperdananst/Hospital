@@ -44,6 +44,9 @@
                   <li class="nav-item ">
                      <a class="nav-link {{ ($title == 'Patient') ? 'active' : '' }}" href="{{ route('patient.index') }}"><i class="fa-solid fa-bed"></i></i>Pasien</a>
                   </li>
+                  <li class="nav-item ">
+                     <a class="nav-link {{ ($title == 'Poly') ? 'active' : '' }}" href="{{ route('poly.index') }}"><i class="fa-solid fa-person-shelter"></i>Poli</a>
+                  </li>
                   
                   <li class="nav-divider">
                       Setting

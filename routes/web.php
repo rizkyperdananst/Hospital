@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NameRoomController;
+use App\Http\Controllers\Admin\PolyController;
 use App\Http\Controllers\Admin\RegistrationController;
 
 /*
@@ -54,6 +55,7 @@ Route::prefix('/admin')->group(function() {
         Route::resource('/nameroom', NameRoomController::class);
         Route::resource('/classroom', ClassRoomController::class);
         Route::resource('/registration', RegistrationController::class);
+        Route::resource('/poly', PolyController::class);
         Route::resource('/admin', AdminController::class);
         Route::resource('/durg', DurgController::class);
 
