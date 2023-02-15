@@ -25,7 +25,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Image</th>
                                 <th>Nama</th>
+                                <th>Jenis</th>
                                 <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
@@ -33,7 +35,9 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                <th>Image</th>
                                 <th>Nama</th>
+                                <th>Jenis</th>
                                 <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
@@ -45,13 +49,15 @@
                             @foreach ($durgs as $durg)
                             <tr>
                                 <td>{{ $no++ }}</td>
+                                <td><img src="{{ url('storage/durgs/', $durg->image) }}" alt="Image" width="100" class="img img-fluid rounded"></td>
                                 <td>{{ $durg->nama }}</td>
+                                <td>{{ $durg->jenis }}</td>
                                 <td>{{ $durg->harga }}</td>
                                 <td>
                                     <a href="{{ route('durg.edit', $durg->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <form action="{{ route('durg.destroy', $durg->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('delete')
+                                        @method('delete')   
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>

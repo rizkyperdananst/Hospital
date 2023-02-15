@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('poly_id')->constrained('polies')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('drug_id')->constrained('drugs')
+            $table->foreignId('drug_id')->constrained('durgs')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('name_room_id')->constrained('name_rooms')
