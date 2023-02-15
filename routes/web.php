@@ -59,7 +59,12 @@ Route::prefix('/admin')->group(function() {
         Route::resource('/poly', PolyController::class);
         Route::resource('/admin', AdminController::class);
         Route::resource('/durg', DurgController::class);
-        Route::resource('/paymentinvoice', PaymentInvoiceController::class);
+
+        Route::get('/paymentinvoice', [PaymentInvoiceController::class, 'index'])->name('paymentinvoice.index');
+        Route::get('/paymentinvoice/create', [PaymentInvoiceController::class, 'create'])->name('paymentinvoice.create');
+        Route::get('getNameRoom/{id}', [PaymentInvoiceController::class, 'getNameRoom'])->name('getNameRoom');
+        Route::get('getClassRoom/{id}', [PatientController::class, 'getClassRoom'])->name('getClassRoom');
+        Route::post('/paymentinvoice/store', [PaymentInvoiceController::class, 'store'])->name('paymentinvoice.store');
 
     });
 });

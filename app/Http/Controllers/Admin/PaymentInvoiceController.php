@@ -19,6 +19,18 @@ class PaymentInvoiceController extends Controller
         ['title' => 'Payment Invoice']);
     }
 
+    public function getNameRoom($id)
+    {
+        $nameRoom = NameRoom::where('id', $id)->get();
+        return response()->json($nameRoom);
+    }
+
+    public function getClassRoom($id)
+    {
+        $classRoom = ClassRoom::where('name_room_id', $id)->get();
+        return response()->json($classRoom);
+    }
+
     public function create()
     {
         $patients = Patient::all();
@@ -30,5 +42,23 @@ class PaymentInvoiceController extends Controller
 
         return view('dashboard.payment-invoice.create', compact('patients', 'officers', 'polies', 'nameRooms', 'classRooms', 'doctors'),
         ['title' => 'Payment Invoice']);
+    }
+
+    public function store(Request $request)
+    {
+        $validate = $request->validate([
+            'patient_id' => 'required|integer',
+            'officer_id' => 'required|integer',
+            'poly_id' => 'required|integer',
+            'drug_id' => 'required|integer',
+            'name_room_id' => 'required|integer',
+            'class_room_id' => 'required|integer',
+            'doctor_id' => 'required|integer',
+            'tanggal_faktur' => 'required|date',
+            'total_bayar' => 'nullable',
+            'keterangan' => 'required'
+        ]);
+
+        dd($validate);
     }
 }
