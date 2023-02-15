@@ -9,21 +9,46 @@
                     <h5>Tambah Obat</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('durg.store') }}" method="POST">
+                    <form action="{{ route('durg.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror">
-                                @error('nama')
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
+                                @error('image')
                                     <div class="alert alert-danger mt-1 mb-1 p-2">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-md-6">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Input nama obat">
+                                @error('nama')
+                                    <div class="alert alert-danger mt-1 mb-1 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="jenis" class="form-label">Jenis</label>
+                                <input type="text" name="jenis" id="jenis" class="form-control @error('jenis') is-invalid @enderror" placeholder="Input jenis obat">
+                                @error('jenis')
+                                    <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
                                 <label for="harga" class="form-label">Harga</label>
-                                <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror">
+                                <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" placeholder="Input harga obat">
                                 @error('harga')
                                     <div class="alert alert-danger mt-1 mb-1 p-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="keterangan" class="form-label">Keterangan</label>
+                                <textarea name="keterangan" id="keterangan" cols="30" rows="5" class="form-control @error('keterangan') is-invalid @enderror" placeholder="Input keterangan"></textarea>
+                                @error('keterangan')
+                                    <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
