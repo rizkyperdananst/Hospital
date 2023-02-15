@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
-@section('title', 'Admin | Data Kelas Ruangan')
- 
+@section('title', 'Admin | Faktur Pembayaran')
+    
 @section('content')
 <div class="row mb-3">
     <div class="col-12">
@@ -16,8 +16,8 @@
     <div class="col-12">
         <div class="card shadow">
             <div class="card-header d-flex justify-content-between">
-                <h5>Data Kelas Ruangan</h5>
-                <a href="{{ route('classroom.create') }}" class="btn btn-info">Tambah Kelas Ruangan</a>
+                <h5>Data Faktur Pembayaran</h5>
+                <a href="{{ route('paymentinvoice.create') }}" class="btn btn-info">Tambah Faktur Pembayaran</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -25,38 +25,38 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Ruangan</th>
-                                <th>Nama Kelas Ruangan</th>
-                                <th>Biaya</th>
-                                <th>Fasilitas</th>
+                                <th>Nama</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Tempat Lahir</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Ruangan</th>
-                                <th>Nama Kelas Ruangan</th>
-                                <th>Biaya</th>
-                                <th>Fasilitas</th>
+                                <th>Nama</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Tempat Lahir</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
-                        <tbody>
+                        {{-- <tbody>
                             @php
                                 $no= 1;
                             @endphp
-                            @foreach ($classRooms as $cr)
+                            @foreach ($polies as $poly)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $cr->nameRooms->nama }}</td>
-                                <td>{{ $cr->nama }}</td>
-                                <td>{{ $cr->biaya }}</td>
-                                <td>{{ $cr->fasilitas }}</td>
-                                <td>
-                                    <a href="{{ route('classroom.edit', $cr->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="{{ route('classroom.show', $cr->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-                                    <form action="{{ route('classroom.destroy', $cr->id) }}" method="POST" class="d-inline">
+                                <td>{{ $poly->nama }}</td>
+                                <td>{{ $poly->jenis_kelamin }}</td>
+                                <td>{{ $poly->tempat_lahir }}</td>
+                                <td>{{ $poly->tanggal_lahir }}</td>
+                                <td width="15%"> 
+                                    <a href="{{ route('poly.edit', $poly->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('poly.show', $poly->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                    <form action="{{ route('poly.destroy', $poly->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
@@ -64,7 +64,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>
+                        </tbody> --}}
                     </table>
                 </div>
             </div>

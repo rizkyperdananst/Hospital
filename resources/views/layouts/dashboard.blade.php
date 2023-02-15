@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ url('assets/vendor/charts/c3charts/c3.css') }}">
     <link rel="stylesheet" href="{{ url('assets/vendor/fonts/flag-icon-css/flag-icon.min.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Style DataTable CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
     <title>@yield('title')</title>
 </head>
 
@@ -86,6 +88,17 @@
     <script src="{{ url('assets/libs/js/dashboard-ecommerce.js') }}"></script>
     <script src="https://kit.fontawesome.com/e7f5845a19.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- DataTable CDN -->
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <!-- Initializing DataTable -->
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();  
+        });
+    </script>
 
     @stack('scripts')
  

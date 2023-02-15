@@ -7,9 +7,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav flex-column">
-                  <li class="nav-divider">
-                      Menu
-                  </li>
                   <li class="nav-item mb-2">
                       <a class="nav-link {{ ($title == 'Dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i>Dashboard</a>
                   </li>
@@ -25,6 +22,9 @@
                   <li class="nav-item ">
                      <a class="nav-link {{ ($title == 'Doctor') ? 'active' : '' }}" href="{{ route('doctor.index') }}"><i class="fa-solid fa-user-doctor"></i>Dokter</a>
                   </li>
+                  <li class="nav-item ">
+                     <a class="nav-link {{ ($title == 'Poly') ? 'active' : '' }}" href="{{ route('poly.index') }}"><i class="fa-solid fa-person-shelter"></i>Poli</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link {{ ($title == 'Name Room') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa-solid fa-people-roof"></i>Ruangan</a>
                     <div id="submenu-5" class="collapse submenu" style="">
@@ -38,19 +38,9 @@
                         </ul>
                     </div>
                 </li>
-                  <li class="nav-item ">
-                     <a class="nav-link {{ ($title == 'Registration') ? 'active' : '' }}" href="{{ route('registration.index') }}"><i class="fa-solid fa-address-card"></i>Pendaftaran</a>
-                  </li>
-                  <li class="nav-item ">
-                     <a class="nav-link {{ ($title == 'Patient') ? 'active' : '' }}" href="{{ route('patient.index') }}"><i class="fa-solid fa-bed"></i></i>Pasien</a>
-                  </li>
-                  <li class="nav-item ">
-                     <a class="nav-link {{ ($title == 'Poly') ? 'active' : '' }}" href="{{ route('poly.index') }}"><i class="fa-solid fa-person-shelter"></i>Poli</a>
-                  </li>
-                  
-                  <li class="nav-divider">
+                  {{-- <li class="nav-divider mb-0">
                       Setting
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
                       <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fa-solid fa-lock"></i> MASTER ADMIN </a>
                       <div id="submenu-6" class="collapse submenu" style="">
@@ -60,6 +50,15 @@
                               </li>
                               <li class="nav-item">
                                   <a class="nav-link" href="{{ route('durg.index') }}">Obat</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{{ route('registration.index') }}">Registrasi</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{{ route('patient.index') }}">Pasien</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{{ route('paymentinvoice.index') }}">Faktur Pembayaran</a>
                               </li>
                           </ul>
                       </div>
