@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NameRoomController;
+use App\Http\Controllers\Admin\PaymentInvoiceController;
 use App\Http\Controllers\Admin\PolyController;
 use App\Http\Controllers\Admin\RegistrationController;
 
@@ -58,6 +59,12 @@ Route::prefix('/admin')->group(function() {
         Route::resource('/poly', PolyController::class);
         Route::resource('/admin', AdminController::class);
         Route::resource('/durg', DurgController::class);
+
+        Route::get('/paymentinvoice', [PaymentInvoiceController::class, 'index'])->name('paymentinvoice.index');
+        Route::get('/paymentinvoice/create', [PaymentInvoiceController::class, 'create'])->name('paymentinvoice.create');
+        Route::get('getNameRoom/{id}', [PaymentInvoiceController::class, 'getNameRoom'])->name('getNameRoom');
+        Route::get('getClassRoom/{id}', [PatientController::class, 'getClassRoom'])->name('getClassRoom');
+        Route::post('/paymentinvoice/store', [PaymentInvoiceController::class, 'store'])->name('paymentinvoice.store');
 
     });
 });
