@@ -10,7 +10,7 @@ class PolyController extends Controller
 {
     public function index()
     {
-        $polies = Poly::all();
+        $polies = Poly::orderBy('id', 'desc')->get();
 
         return view('dashboard.poly.poly', compact('polies'),
         ['title' => 'Poly']);

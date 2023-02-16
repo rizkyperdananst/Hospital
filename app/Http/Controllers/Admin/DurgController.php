@@ -11,7 +11,7 @@ class DurgController extends Controller
 {
     public function index()
     {
-        $durgs = Durg::all();
+        $durgs = Durg::orderBy('id', 'desc')->get();
 
         return view('dashboard.durg.durg', compact('durgs'),
         ['title' => 'Durg']);
@@ -93,7 +93,9 @@ class DurgController extends Controller
 
     public function destroy($id)
     {
-        $durg = Durg::find($id)->delete();
+        $durg = Durg::find($id);
+        $durg->delete();
+        File::delete('storage/durgs/'. $durg->image);
         return redirect()->route('durg.index')->with('status', 'Data Obat Berhasil Di Hapus');
     }
 

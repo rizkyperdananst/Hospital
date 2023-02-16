@@ -15,7 +15,7 @@ class PatientController extends Controller
 {
     public function index()
     {
-        $patients = Patient::all();
+        $patients = Patient::orderBy('id', 'desc')->get();
         return view('dashboard.patient.patient', compact('patients'),
         ['title' => 'Patient']);
     }

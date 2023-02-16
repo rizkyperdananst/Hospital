@@ -15,7 +15,7 @@
                             <div class="col-md-6">
                                 <label for="name_room_id" class="form-label">Nama Ruangan</label>
                                 <select name="name_room_id" id="name_room_id" class="form-control @error('name_room_id') is-invalid @enderror">
-                                    <option selected>--Pilih Nama Ruangan--</option>
+                                    <option selected hidden>--Pilih Nama Ruangan--</option>
                                     @foreach ($nameRooms as $nr)
                                         <option value="{{ $nr->id }}">{{ $nr->nama }}</option>
                                     @endforeach

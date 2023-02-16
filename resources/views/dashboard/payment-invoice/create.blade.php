@@ -54,6 +54,9 @@
                                 <label for="drug_id" class="form-label">Obat</label>
                                 <select name="drug_id" id="drug_id" class="form-select @error('drug_id') is-invalid @enderror">
                                     <option selected hidden>--Pilih Obat--</option>
+                                    @foreach ($durgs as $d)
+                                        <option value="{{ $d->id }}">{{ $d->nama }}</option>
+                                    @endforeach
                                 </select>
                                 @error('drug_id')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
@@ -109,7 +112,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="hidden" name="total_bayar" id="total_bayar" class="form-control"> 
+                                <input type="hidden" name="total_bayar" id="total_bayar" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">

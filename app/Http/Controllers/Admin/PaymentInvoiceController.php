@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ClassRoom;
 use App\Models\Doctor;
+use App\Models\Durg;
 use App\Models\NameRoom;
 use App\Models\Officer;
 use App\Models\Patient;
+use App\Models\PaymentInvoice;
 use App\Models\Poly;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,9 @@ class PaymentInvoiceController extends Controller
 {
     public function index()
     {
-        return view('dashboard.payment-invoice.payment-invoice',
+        $paymentInvoices = PaymentInvoice::orderBy('id', 'desc')->get();
+
+        return view('dashboard.payment-invoice.payment-invoice', compact('paymentInvoices'),
         ['title' => 'Payment Invoice']);
     }
 
@@ -36,11 +40,12 @@ class PaymentInvoiceController extends Controller
         $patients = Patient::all();
         $officers = Officer::all();
         $polies = Poly::all();
+        $durgs = Durg::all();
         $nameRooms = NameRoom::all();
         $classRooms = ClassRoom::all();
         $doctors = Doctor::all();
 
-        return view('dashboard.payment-invoice.create', compact('patients', 'officers', 'polies', 'nameRooms', 'classRooms', 'doctors'),
+        return view('dashboard.payment-invoice.create', compact('patients', 'officers', 'polies', 'durgs', 'nameRooms', 'classRooms', 'doctors'),
         ['title' => 'Payment Invoice']);
     }
 
@@ -59,6 +64,21 @@ class PaymentInvoiceController extends Controller
             'keterangan' => 'required'
         ]);
 
-        dd($validate);
+        $paymentInvoice = PaymentInvoice::create($validate);
+        return redirect()->route('paymentinvoice.index')->with('status', 'Data Faktur Pembayaran Berhasil Di Tambahkan');
+    }
+
+    public function show($id)
+    {
+        $pi = PaymentInvoice::find($id);
+
+        return view('dashboard.payment-invoice.detail', compact('pi'),
+        ['title' => 'Payment Invoice']);
+    }
+
+    public function destroy($id)
+    {
+        $paymentInvoice = PaymentInvoice::find($id)->delete();
+        return redirect()->route('paymentinvoice.index')->with('status', 'Data Faktur Pembayaran Berhasil Di Hapus');
     }
 }

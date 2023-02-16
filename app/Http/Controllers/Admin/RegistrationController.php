@@ -11,7 +11,7 @@ class RegistrationController extends Controller
 {
     public function index()
     {
-        $registrations = Registration::all();
+        $registrations = Registration::orderBy('id', 'desc')->get();
 
         return view('dashboard.registration.registration', compact('registrations'),
         ['title' => 'Registration']);

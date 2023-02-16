@@ -25,46 +25,47 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
+                                <th>Nama Pasien</th>
+                                <th>Nama Ruangan</th>
+                                <th>Kelas Ruangan</th>
+                                <th>Dokter</th>
+                                <th>Tanggal</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
+                                <th>Nama Pasien</th>
+                                <th>Nama Ruangan</th>
+                                <th>Kelas Ruangan</th>
+                                <th>Dokter</th>
+                                <th>Tanggal</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
-                        {{-- <tbody>
+                        <tbody>
                             @php
                                 $no= 1;
                             @endphp
-                            @foreach ($polies as $poly)
+                            @foreach ($paymentInvoices as $pi)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $poly->nama }}</td>
-                                <td>{{ $poly->jenis_kelamin }}</td>
-                                <td>{{ $poly->tempat_lahir }}</td>
-                                <td>{{ $poly->tanggal_lahir }}</td>
-                                <td width="15%"> 
-                                    <a href="{{ route('poly.edit', $poly->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="{{ route('poly.show', $poly->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-                                    <form action="{{ route('poly.destroy', $poly->id) }}" method="POST" class="d-inline">
+                                <td>{{ $pi->patients->nama }}</td>
+                                <td>{{ $pi->nameRooms->nama }}</td>
+                                <td>{{ $pi->classRooms->nama }}</td>
+                                <td>{{ $pi->doctors->nama }}</td>
+                                <td>{{ $pi->tanggal_faktur }}</td>
+                                <td width="13%"> 
+                                    <a href="{{ route('paymentinvoice.show', $pi->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                    <form action="{{ route('paymentinvoice.destroy', $pi->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('delete')
                                         <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>

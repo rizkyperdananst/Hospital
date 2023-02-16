@@ -64,8 +64,10 @@ Route::prefix('/admin')->group(function() {
         Route::get('/paymentinvoice', [PaymentInvoiceController::class, 'index'])->name('paymentinvoice.index');
         Route::get('/paymentinvoice/create', [PaymentInvoiceController::class, 'create'])->name('paymentinvoice.create');
         Route::get('getNameRoom/{id}', [PaymentInvoiceController::class, 'getNameRoom'])->name('getNameRoom');
-        Route::get('getClassRoom/{id}', [PatientController::class, 'getClassRoom'])->name('getClassRoom');
+        Route::get('getClassRoom/{id}', [PaymentInvoiceController::class, 'getClassRoom'])->name('getClassRoom');
         Route::post('/paymentinvoice/store', [PaymentInvoiceController::class, 'store'])->name('paymentinvoice.store');
+        Route::get('/paymentinvoice/show/{id}', [PaymentInvoiceController::class, 'show'])->name('paymentinvoice.show');
+        Route::post('/paymentinvoice/destroy/{id}', [PaymentInvoiceController::class, 'destroy'])->name('paymentinvoice.destroy');
 
     });
 });

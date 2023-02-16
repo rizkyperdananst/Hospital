@@ -37,7 +37,7 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->date('tanggal_faktur');
-            $table->string('total_bayar');
+            $table->string('total_bayar')->nullable();
             $table->text('keterangan');
             $table->softDeletes();
             $table->timestamps();

@@ -10,7 +10,7 @@ class NurseController extends Controller
 {
     public function index()
     {
-        $nurses = Nurse::all();
+        $nurses = Nurse::orderBy('id', 'desc')->get();
         return view('dashboard.nurse.nurse', compact('nurses'), 
         ['title' => 'Nurse']);
     }

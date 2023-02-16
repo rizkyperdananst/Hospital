@@ -10,7 +10,7 @@ class NameRoomController extends Controller
 {
     public function index()
     {
-        $nameRooms = NameRoom::all();
+        $nameRooms = NameRoom::orderBy('id', 'desc')->get();
 
         return view('dashboard.nameroom.nameroom', compact('nameRooms'),
         ['title' => 'Name Room']);

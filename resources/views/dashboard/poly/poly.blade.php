@@ -53,7 +53,7 @@
                                 <td>{{ $poly->jenis_kelamin }}</td>
                                 <td>{{ $poly->tempat_lahir }}</td>
                                 <td>{{ $poly->tanggal_lahir }}</td>
-                                <td width="15%"> 
+                                <td width="16%"> 
                                     <a href="{{ route('poly.edit', $poly->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="{{ route('poly.show', $poly->id) }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
                                     <form action="{{ route('poly.destroy', $poly->id) }}" method="POST" class="d-inline">

@@ -10,7 +10,7 @@ class OfficerController extends Controller
 {
     public function index()
     {
-        $officers = Officer::all();
+        $officers = Officer::orderBy('id', 'desc')->get();
         return view('dashboard.officer.officer', compact('officers'),
         ['title' => 'Officer']);
     }

@@ -11,7 +11,7 @@ class ClassRoomController extends Controller
 {
     public function index()
     {
-        $classRooms = ClassRoom::all();
+        $classRooms = ClassRoom::orderBy('id', 'desc')->get();
         
         return view('dashboard.classroom.classroom', compact('classRooms'),
         ['title' => 'Class Room']);

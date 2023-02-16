@@ -47,7 +47,7 @@
                             <div class="col-md-6">
                                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" class="form-select @error('jenis_kelamin') is-invalid @enderror" aria-label="Default select example">
-                                    <option selected>Pilih Jenis Kelamin</option>
+                                    <option selected hidden>Pilih Jenis Kelamin</option>
                                     @foreach ($genders as $gender)
                                         <option value="{{ $gender }}">{{ $gender }}</option>
                                     @endforeach
@@ -75,7 +75,7 @@
                             <div class="col-md-6">
                                 <label for="agama" class="form-label">Agama</label>
                                 <select name="agama" id="agama" class="form-select @error('agama') is-invalid @enderror">
-                                    <option selected>--Pilih Agama--</option>
+                                    <option selected hidden>--Pilih Agama--</option>
                                     @foreach ($religions as $r)
                                         <option value="{{ $r }}">{{ $r }}</option>
                                     @endforeach
@@ -89,7 +89,7 @@
                             <div class="col-md-6">
                                 <label for="status" class="form-label">Status</label>
                                 <select name="status" id="status" class="form-select @error('status') is-invalid @enderror">
-                                    <option selected>--Pilih Status---</option>
+                                    <option selected hidden>--Pilih Status---</option>
                                     @foreach ($statuses as $s)
                                         <option value="{{ $s }}">{{ $s }}</option>
                                     @endforeach
@@ -101,7 +101,7 @@
                             <div class="col-md-6">
                                 <label for="pendidikan" class="form-label">Pendidikan</label>
                                 <select name="pendidikan" id="pendidikan" class="form-select @error('pendidikan') is-invalid @enderror">
-                                    <option selected>--Pilih Pendidikan--</option>
+                                    <option selected hidden>--Pilih Pendidikan--</option>
                                     @foreach ($educations as $e)
                                         <option value="{{ $e }}">{{ $e }}</option>
                                     @endforeach
@@ -136,7 +136,7 @@
                             <div class="col-md-6">
                                 <label for="class_room_id" class="form-label">Ruangan Kelas</label>
                                 <select name="class_room_id" id="class_room_id" class="form-select @error('class_room_id') is-invalid @enderror">
-                                    <option selected>--Pilih Ruangan Kelas--</option>
+                                    <option selected hidden>--Pilih Ruangan Kelas--</option>
                                 </select>
                                 @error('class_room_id')
                                     <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>
@@ -145,7 +145,7 @@
                             <div class="col-md-6">
                                 <label for="registration_id" class="form-label">Nama Penanggung Jawab</label>
                                 <select name="registration_id" id="registration_id" class="form-select @error('registration_id') is-invalid @enderror">
-                                    <option selected>--Pilih Nama Penanggung Jawab--</option>
+                                    <option selected hidden>--Pilih Nama Penanggung Jawab--</option>
                                     @foreach ($registrations as $r)
                                         <option value="{{ $r->id }}">{{ $r->nama }}</option>
                                     @endforeach
@@ -159,7 +159,7 @@
                             <div class="col-md-6">
                                 <label for="nurse_id" class="form-label">Perawat</label>
                                 <select name="nurse_id" id="nurse_id" class="form-select @error('nurse_id') is-invaid @enderror">
-                                    <option selected>--Pilih Perawat--</option>
+                                    <option selected hidden>--Pilih Perawat--</option>
                                     @foreach ($nurses as $n)
                                         <option value="{{ $n->id }}">{{ $n->nama }}</option>
                                     @endforeach
@@ -171,7 +171,7 @@
                             <div class="col-md-6">
                                 <label for="doctor_id" class="form-label">Dokter</label>
                                 <select name="doctor_id" id="doctor_id" class="form-select @error('doctor_id') is-invalid @enderror">
-                                    <option selected>--Pilih Dokter---</option>
+                                    <option selected hidden>--Pilih Dokter---</option>
                                     @foreach ($doctors as $d)
                                         <option value="{{ $d->id }}">{{ $d->nama }}</option>
                                     @endforeach
