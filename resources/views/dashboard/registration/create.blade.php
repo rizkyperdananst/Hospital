@@ -31,7 +31,7 @@
                         <div class="col-md-6">
                             <label for="officer_id" class="form-label">Petugas</label>
                             <select name="officer_id" id="officer_id" class="form-select @error('officer_id') is-invalid @enderror">
-                                <option selected>--Pilih Petugas--</option>
+                                <option selected hidden>--Pilih Petugas--</option>
                                 @foreach ($officers as $officer)
                                     <option value="{{ $officer->id }}">{{ $officer->nama }}</option>
                                 @endforeach
