@@ -14,6 +14,9 @@
                       <a class="nav-link {{ ($title == 'Profile') ? 'active' : '' }}" href="{{ route('profile.index') }}"><i class="fa-sharp fa-solid fa-user"></i>Profile</a>
                   </li>
                   <li class="nav-item ">
+                      <a class="nav-link {{ ($title == 'News') ? 'active' : '' }}" href="{{ route('news.index') }}"><i class="fa-solid fa-newspaper"></i>Berita</a>
+                  </li>
+                  <li class="nav-item ">
                       <a class="nav-link {{ ($title == 'Officer') ? 'active' : '' }}" href="{{ route('officer.index') }}"><i class="fa-solid fa-user-shield"></i>Petugas</a>
                   </li>
                   <li class="nav-item ">

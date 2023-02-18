@@ -20,6 +20,8 @@
     <!-- Style DataTable CDN -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
     <title>@yield('title')</title>
+    @stack('styles')
+
 </head>
 
 <body>
@@ -90,6 +92,8 @@
     <script src="https://kit.fontawesome.com/e7f5845a19.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
+    @stack('scripts')
+
     <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- DataTable CDN -->
@@ -101,8 +105,6 @@
         });
     </script>
 
-    @stack('scripts')
- 
 </body>
  
 </html>
