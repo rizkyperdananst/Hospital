@@ -31,7 +31,7 @@
                             <div class="col-md-6">
                                 <label for="shift" class="form-label">Shift</label>
                                 <select class="form-select @error('shift') is-invalid @enderror" name="shift" aria-label="Default select example">
-                                    <option selected>Pilih Shift</option>
+                                    <option selected hidden>Pilih Shift</option>
                                     @foreach ($shifts as $shift)
                                         <option value="{{ $shift }}">{{ $shift }}</option>
                                     @endforeach
@@ -43,7 +43,7 @@
                             <div class="col-md-6">
                                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                 <select class="form-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" aria-label="Default select example">
-                                    <option selected>Pilih Jenis Kelamin</option>
+                                    <option selected hidden>Pilih Jenis Kelamin</option>
                                     @foreach ($genders as $gender)
                                         <option value="{{ $gender }}">{{ $gender }}</option>
                                     @endforeach
