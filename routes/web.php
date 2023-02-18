@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\NameRoomController;
 use App\Http\Controllers\Admin\ClassRoomController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\RegistrationController;
 use App\Http\Controllers\Admin\PaymentInvoiceController;
 
@@ -41,6 +42,7 @@ Route::prefix('/admin')->group(function() {
         Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
         Route::resource('/profile', ProfileController::class);
+        Route::resource('/news', NewsController::class);
         Route::resource('/officer', OfficerController::class);
         Route::resource('/nurse', NurseController::class);
         Route::resource('/doctor', DoctorController::class);
